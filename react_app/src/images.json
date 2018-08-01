@@ -1,0 +1,50 @@
+[
+    {
+        "id":1,
+        "src": "./images/neko1"
+    },
+    {
+        "id":2,
+        "src": "./images/neko2"
+    },
+    {
+        "id":3,
+        "src": "./images/neko3"
+    },
+    {
+        "id":4,
+        "src": "./images/neko4"
+    },
+    {
+        "id":5,
+        "src": "./images/neko5"
+    },
+    {
+        "id":6,
+        "src": "./images/neko6"
+    },
+    {
+        "id":7,
+        "src": "./images/neko7"
+    },
+    {
+        "id":8,
+        "src": "./images/neko8"
+    },
+    {
+        "id":9,
+        "src": "./images/neko9"
+    },
+    {
+        "id":10,
+        "src": "./images/neko10"
+    },
+    {
+        "id":11,
+        "src": "./images/neko11"
+    },
+    {
+        "id":12,
+        "src": "./images/neko12"
+    }
+]
