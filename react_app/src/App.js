@@ -32,9 +32,9 @@ class App extends Component {
 
       return images;
     }
-    this.setState({
-      allImages: ShuffArr
-    })
+    // this.setState({
+    //   allImages: ShuffArr
+    // })
   }
 
   // function to increase score after successful selection
@@ -65,10 +65,12 @@ class App extends Component {
 
       // run score function
       this.score()
+      this.shuffle()
     } else {
       this.setState({
         currentScore: 0
       })
+      this.shuffle()
     }
   }
 
@@ -84,11 +86,11 @@ class App extends Component {
         <div className="imageDiv text-center">
           {this.state.allImages.map(image =>
             <Image
-              source={image.src}
+              src={image.src}
               key={image.id} //For React Use Only
               iid={image.id}
               isSelected={this.isSelected}
-              shuffle={this.shuffle}
+              
             />
           )}
         </div>
