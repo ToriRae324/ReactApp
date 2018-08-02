@@ -6,13 +6,15 @@ import Image from "./components/Image"
 import images from "./images.json";
 
 class App extends Component {
-  // state
+  // states
   state = {
     allImages: images,
     selectedArr: [],
     bestScore: 0,
     currentScore: 0,
   }
+
+
   // function to shuffle images array (Using Fisher–Yates shuffle)
   shuffle = () => {
     const ShuffArr = (images) => {
@@ -32,9 +34,9 @@ class App extends Component {
 
       return images;
     }
-    // this.setState({
-    //   allImages: ShuffArr
-    // })
+    this.setState({
+      allImages: ShuffArr(this.state.allImages)
+    })
   }
 
   // function to increase score after successful selection
@@ -56,19 +58,24 @@ class App extends Component {
 
     if (!this.state.selectedArr.includes(id)) {
 
-      // const selectedImg = this.state.allImages.filter(image=> image.id === id);
+      const newArr = [...this.state.selectedArr, id];
 
       // set state to include id of selected image
       this.setState({
-        selectedArr: this.state.selectedArr.push(id)
+        selectedArr: newArr
       })
 
       // run score function
       this.score()
       this.shuffle()
-    } else {
+    }
+    // else - if you selected one prev selected 
+    else {
       this.setState({
         currentScore: 0
+      })
+      this.setState({
+        selectedArr: []
       })
       this.shuffle()
     }
@@ -82,6 +89,7 @@ class App extends Component {
       // <div className="App">
       <div className="container">
         <Header bestScore={this.state.bestScore} currentScore={this.state.currentScore} />
+
 
         <div className="imageDiv text-center">
           {this.state.allImages.map(image =>

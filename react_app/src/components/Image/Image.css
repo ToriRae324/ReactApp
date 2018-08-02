@@ -1,7 +1,9 @@
 img {
     border-radius: 15px 25px;
-    border: solid 1px black;
+    border: solid 3px black;
     height: 100px;
     width: 200px;
     object-fit: cover;
+    margin: 5px;
+
 }
