@@ -39,6 +39,13 @@ class App extends Component {
     })
   }
 
+  // function to check for win
+  checkWin = () => {
+    if (this.state.currentScore === 12) {
+      alert(`Congratulations! You Win!`)
+    }
+  }
+
   // function to increase score after successful selection
   // -(see selected())
   score = () => {
@@ -51,6 +58,7 @@ class App extends Component {
         bestScore: this.state.bestScore + 1
       })
     }
+
   }
 
   // function to add image to selected array
@@ -58,6 +66,7 @@ class App extends Component {
 
     if (!this.state.selectedArr.includes(id)) {
 
+      // create new array containing selectedArr and id
       const newArr = [...this.state.selectedArr, id];
 
       // set state to include id of selected image
@@ -69,8 +78,19 @@ class App extends Component {
       this.score()
       this.shuffle()
     }
+    else if (this.state.currentScore === 12) {
+      alert(`Congratulations! You Won!`)
+      this.setState({
+        currentScore: 0
+      })
+      this.setState({
+        selectedArr: []
+      })
+      this.shuffle()
+    }
     // else - if you selected one prev selected 
     else {
+      alert(`Sorry, try again`);
       this.setState({
         currentScore: 0
       })
@@ -98,14 +118,14 @@ class App extends Component {
               key={image.id} //For React Use Only
               iid={image.id}
               isSelected={this.isSelected}
-              
+
             />
           )}
         </div>
 
 
         {/* Just a footer */}
-        <footer className="footer text-center">
+        <footer className="footer text-center shadow">
           <img src={logo} className="App-logo" alt="logo" /> A React App
         </footer>
       </div>
