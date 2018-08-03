@@ -58,7 +58,7 @@ class App extends Component {
         bestScore: this.state.bestScore + 1
       })
     }
-
+    this.checkWin()
   }
 
   // function to add image to selected array
@@ -77,19 +77,7 @@ class App extends Component {
       // run score function
       this.score()
       this.shuffle()
-      this.checkWin()
     }
-    // else if (this.state.currentScore === 12) {
-    //   alert(`Congratulations! You Won!`)
-    //   this.setState({
-    //     currentScore: 0
-    //   })
-    //   this.setState({
-    //     selectedArr: []
-    //   })
-    //   this.shuffle()
-    // }
-    // else - if you selected one prev selected 
     else {
       alert(`Sorry, try again`);
       this.setState({
