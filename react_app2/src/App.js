@@ -41,7 +41,7 @@ class App extends Component {
 
   // function to check for win
   checkWin = () => {
-    if (this.state.currentScore === 12) {
+    if (this.state.currentScore + 1 === 12) {
       alert(`Congratulations! You Win!`)
     }
   }
@@ -77,17 +77,18 @@ class App extends Component {
       // run score function
       this.score()
       this.shuffle()
+      this.checkWin()
     }
-    else if (this.state.currentScore === 12) {
-      alert(`Congratulations! You Won!`)
-      this.setState({
-        currentScore: 0
-      })
-      this.setState({
-        selectedArr: []
-      })
-      this.shuffle()
-    }
+    // else if (this.state.currentScore === 12) {
+    //   alert(`Congratulations! You Won!`)
+    //   this.setState({
+    //     currentScore: 0
+    //   })
+    //   this.setState({
+    //     selectedArr: []
+    //   })
+    //   this.shuffle()
+    // }
     // else - if you selected one prev selected 
     else {
       alert(`Sorry, try again`);
@@ -106,7 +107,6 @@ class App extends Component {
   // render page
   render() {
     return (
-      // <div className="App">
       <div className="container">
         <Header bestScore={this.state.bestScore} currentScore={this.state.currentScore} />
 
@@ -129,7 +129,6 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" /> A React App
         </footer>
       </div>
-      // </div>
     );
   }
 }
